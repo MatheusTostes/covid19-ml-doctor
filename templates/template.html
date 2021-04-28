@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Previsão do estado de evolução do covid-19</title>
+  </head>
+  <body>
+
+	<div class="container">
+		<h1>Previsão do estado de evolução</h1>
+		<form action="/verificar" method="post">
+		  <div class="form-group row">
+			<div class="col-sm-2">CriterioConfirmacao</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosCriterioConfirmacao" class="form-control">
+					<option value="1">Clinico Epdemiologico</option>
+					<option value="0">Laboratorial</option>
+			  </select>
+			</div>
+		  </div> 
+		  <div class="form-group row">
+			<div class="col-sm-2">FaixaEtaria</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosFaixaEtaria" class="form-control">
+					<option value="0">0 a 4 anos</option>
+					<option value="1">05 a 9 anos</option>
+					<option value="2">10 a 19 anos</option>
+					<option value="3">20 a 29 anos</option>
+					<option value="4">30 a 39 anos</option>
+					<option value="5">40 a 49 anos</option>
+					<option value="6">50 a 59 anos</option>
+					<option value="7">60 a 69 anos</option>
+					<option value="8">70 a 79 anos</option>
+					<option value="9">80 a 89 anos</option>
+					<option value="10">90 anos ou mais</option>
+			  </select>
+			</div>
+		  </div>  
+		  <div class="form-group row">
+			<div class="col-sm-2">Sexo</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosSexo" class="form-control">
+					<option value="1">Homem</option>
+					<option value="0">Mulher</option>
+			  </select>
+			</div>
+		  </div> 
+		  <div class="form-group row">
+			<div class="col-sm-2">RacaCor</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosRacaCor" class="form-control">
+					<option value="0">Branca</option>
+					<option value="1">Preta</option>
+					<option value="2">Amarela</option>
+					<option value="3">Parda</option>
+					<option value="4">Ignorado</option>
+					<option value="5">Indigena</option>
+			  </select>
+			</div>
+		  </div>  
+		  <div class="form-group row">
+			<div class="col-sm-2">Febre</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosFebre" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div> 
+		  <div class="form-group row">
+			<div class="col-sm-2">DificuldadeRespiratoria</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosDificuldadeRespiratoria" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">Tosse</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosTosse" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">Coriza</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosCoriza" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">DorGarganta</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosDorGarganta" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">Diarreia</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosDiarreia" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">Cefaleia</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosCefaleia" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadePulmao</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadePulmao" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadeCardio</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadeCardio" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadeRenal</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadeRenal" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadeDiabetes</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadeDiabetes" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadeTabagismo</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadeTabagismo" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">ComorbidadeObesidade</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosComorbidadeObesidade" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-2">FicouInternado</div>
+			<div class="col-sm-3">
+			  <select name="gridRadiosFicouInternado" class="form-control">
+					<option value="1">Não</option>
+					<option value="0">Sim</option>
+			  </select>
+			</div>
+		  </div>
+		  <div class="form-group row">
+			<div class="col-sm-10">
+			  <button type="submit" class="btn btn-primary">Verificar</button>
+			</div>
+		  </div>
+
+
+		</form>
+
+		
+		<!-- {% if classe %} -->
+
+			{% if classe == '1' %}
+				<div style="display:table-cell; vertical-align:middle; text-align:center">
+					<p>Evolução prevista: Óbito pelo COVID-19 </p>
+				</div>
+			{% else %}
+				<div style="display:table-cell; vertical-align:middle; text-align:center">
+					<p>Evolução prevista: Curado</p>
+				</div>
+			{% endif %}
+
+
+		<p>Probabilidade: {{ classe1 }} % </p>
+
+			
+		<!-- {% endif %} -->
+	<!-- FIM DO CONTAINER-->
+	</div>
+
+
+  </body>
+  
+  
+  
+</html>
