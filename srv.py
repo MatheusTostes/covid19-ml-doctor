@@ -33,10 +33,10 @@ def verificar():
 	FicouInternado = request.form['gridRadiosFicouInternado']
 	
 	dados = np.array([[CriterioConfirmacao,FaixaEtaria,Sexo,RacaCor,Febre,
-										DificuldadeRespiratoria,Tosse,Coriza,DorGarganta,Diarreia,
-										Cefaleia,ComorbidadePulmao,ComorbidadeCardio,ComorbidadeRenal,
-										ComorbidadeDiabetes,ComorbidadeTabagismo,ComorbidadeObesidade,
-										FicouInternado]])
+			DificuldadeRespiratoria,Tosse,Coriza,DorGarganta,Diarreia,
+			Cefaleia,ComorbidadePulmao,ComorbidadeCardio,ComorbidadeRenal,
+			ComorbidadeDiabetes,ComorbidadeTabagismo,ComorbidadeObesidade,
+			FicouInternado]])
 
 	print(":::::: Dados de Teste ::::::")
 	print("CriterioConfirmacao: {}".format(CriterioConfirmacao))
