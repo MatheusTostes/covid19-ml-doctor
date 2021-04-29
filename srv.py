@@ -1,7 +1,7 @@
 import numpy as np
 import os
 from flask import Flask, request, render_template, make_response
-from sklearn.externals import joblib
+import joblib
 
 app = Flask(__name__, static_url_path='/static')
 model = joblib.load('model/model.pkl')
@@ -31,8 +31,12 @@ def verificar():
 	ComorbidadeTabagismo = request.form['gridRadiosComorbidadeTabagismo']
 	ComorbidadeObesidade = request.form['gridRadiosComorbidadeObesidade']
 	FicouInternado = request.form['gridRadiosFicouInternado']
-	teste = np.array([[CriterioConfirmacao,FaixaEtaria,Sexo,RacaCor,Febre,DificuldadeRespiratoria,Tosse,Coriza,DorGarganta,Diarreia,Cefaleia,ComorbidadePulmao,ComorbidadeCardio,ComorbidadeRenal,ComorbidadeDiabetes,ComorbidadeTabagismo,ComorbidadeObesidade,FicouInternado]])
-
+	
+	dados = np.array([[CriterioConfirmacao,FaixaEtaria,Sexo,RacaCor,Febre,
+										DificuldadeRespiratoria,Tosse,Coriza,DorGarganta,Diarreia,
+										Cefaleia,ComorbidadePulmao,ComorbidadeCardio,ComorbidadeRenal,
+										ComorbidadeDiabetes,ComorbidadeTabagismo,ComorbidadeObesidade,
+										FicouInternado]])
 
 	print(":::::: Dados de Teste ::::::")
 	print("CriterioConfirmacao: {}".format(CriterioConfirmacao))
@@ -55,10 +59,10 @@ def verificar():
 	print("FicouInternado: {}".format(FicouInternado))
 	print("\n")
 
-	classe = model.predict(teste)[0]
+	classe = model.predict(dados)[0]
 	print("Classe Predita: {}".format(str(classe)))
 
-	classe0 = model.predict_proba(teste)
+	classe0 = model.predict_proba(dados)
 
 	print("Probabilidade: {}".format(str(classe0)))
 
@@ -75,3 +79,5 @@ def verificar():
 if __name__ == "__main__":
         port = int(os.environ.get('PORT', 5500))
         app.run(host='0.0.0.0', port=port)
+
+

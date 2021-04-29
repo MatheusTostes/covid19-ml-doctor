@@ -1,15 +1,12 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+  	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <title>Previsão do estado de evolução do covid-19</title>
+    <title>COVID-19 ML Doctor</title>
   </head>
   <body>
 
@@ -196,34 +193,19 @@
 			  <button type="submit" class="btn btn-primary">Verificar</button>
 			</div>
 		  </div>
-
-
 		</form>
 
+		{% if classe == '1' %}
+			<div style="display:table-cell; vertical-align:middle; text-align:center">
+				<p>Evolução prevista: Risco alto</p>
+			</div>
+		{% else %}
+			<div style="display:table-cell; vertical-align:middle; text-align:center">
+				<p>Evolução prevista: Risco baixo</p>
+			</div>
+		{% endif %}
 		
-		<!-- {% if classe %} -->
-
-			{% if classe == '1' %}
-				<div style="display:table-cell; vertical-align:middle; text-align:center">
-					<p>Evolução prevista: Óbito pelo COVID-19 </p>
-				</div>
-			{% else %}
-				<div style="display:table-cell; vertical-align:middle; text-align:center">
-					<p>Evolução prevista: Curado</p>
-				</div>
-			{% endif %}
-
-
 		<p>Probabilidade: {{ classe1 }} % </p>
-
-			
-		<!-- {% endif %} -->
-	<!-- FIM DO CONTAINER-->
 	</div>
-
-
   </body>
-  
-  
-  
 </html>
